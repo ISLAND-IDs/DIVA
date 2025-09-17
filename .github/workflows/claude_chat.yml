@@ -1,0 +1,21 @@
+name: Claude PR Creation
+on:
+  issue_comment:
+    types: [created]  # 이슈 또는 PR에 댓글이 달릴 때 트리거
+
+jobs:
+  create-pr:
+    # 댓글에 @claude가 포함된 경우에만 실행
+    if: contains(github.event.comment.body, '@claude')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anthropics/claude-code-action@beta
+        with:
+          # 댓글 내용을 프롬프트로 전달
+          prompt: "${{ github.event.comment.body }}"
+
+          # Claude가 사용할 수 있는 도구 지정
+          allowed_tools: "Bash(git status),Bash(git log),Bash(git show),Bash(git blame),Bash(git reflog),Bash(git stash list),Bash(git ls-files),Bash(git branch),Bash(git tag),Bash(git diff),View,GlobTool,GrepTool,BatchTool"
+
+          # Anthropic API 키 (GitHub 시크릿 사용)
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }
