@@ -2,6 +2,12 @@ name: Claude PR Creation
 on:
   issue_comment:
     types: [created]  # 이슈 또는 PR에 댓글이 달릴 때 트리거
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened, assigned]
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   create-pr:
