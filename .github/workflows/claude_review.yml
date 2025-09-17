@@ -19,6 +19,5 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           prompt: "Review the PR changes. Focus on code quality, potential bugs, and performance issues. Suggest improvements where appropriate."
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 여기에 올바르게 닫힌 표현식 사용
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
