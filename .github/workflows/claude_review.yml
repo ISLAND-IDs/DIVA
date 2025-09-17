@@ -20,3 +20,5 @@ jobs:
         with:
           # 리뷰 중점 영역 지정
           prompt: "Review the PR changes. Focus on code quality, potential bugs, and performance issues. Suggest improvements where appropriate."
+          # Anthropic API 키 (GitHub 시크릿 사용)
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }
