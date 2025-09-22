@@ -3,6 +3,9 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize]  # 새 PR 및 업데이트 시 실행
+    
+permissions:
+  id-token: write  # 이 부분 추가
 
 jobs:
   code-review:
