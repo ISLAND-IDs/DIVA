@@ -4,10 +4,6 @@ on:
     types: [created]  # 이슈 또는 PR에 댓글이 달릴 때 트리거
   pull_request_review_comment:
     types: [created]
-  issues:
-    types: [opened, assigned]
-  pull_request_review:
-    types: [submitted]
 
 permissions:
   id-token: write  # 이 부분 추가
